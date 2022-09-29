@@ -2,6 +2,7 @@ import React from "react";
 import img1 from "../assets/img1.png";
 import img2 from "../assets/img2.png";
 import img3 from "../assets/img3.png";
+import { Link, useNavigate } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -85,9 +86,12 @@ const Banner = () => {
                   </div>
                   <div className="flex items-center justify-between ">
                     <span className="text-xl font-bold">Rp 25.000.000</span>
-                    <button className="rounded-lg  bg-transparent px-5 py-2.5 text-center text-sm font-medium text-black hover:bg-red-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <Link
+                      to="/detailDonate"
+                      className="rounded-lg  bg-transparent px-5 py-2.5 text-center text-sm font-medium  text-black hover:bg-red-700 hover:text-white focus:outline-none focus:ring-1  "
+                    >
                       Add to cart
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

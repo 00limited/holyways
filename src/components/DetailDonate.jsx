@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import img1 from "../assets/img4.png";
+import ModalDonate from "../modals/transaction/ModalPayment";
 
 const DetailDonate = () => {
+  const [openModalDonate, setOpenModalDonate] = useState(false);
+
   return (
     <div>
       <div className="flex pt-[6rem]   px-[200px]">
@@ -44,7 +47,12 @@ const DetailDonate = () => {
               ever since the 1500s, when an unknown printer took a galley of
               type and scrambled it to make a type specimen book.{" "}
             </p>
-            <button className="font-bold  py-3 px-6 sm:w-[100%] rounded-lg ">
+            <button
+              onClick={() => {
+                setOpenModalDonate(true);
+              }}
+              className="font-bold  py-3 px-6 sm:w-[100%] rounded-lg "
+            >
               Donate{" "}
             </button>
           </div>
@@ -70,6 +78,10 @@ const DetailDonate = () => {
           </div>
         </div>
       </div>
+      <ModalDonate
+        setOpenModalDonate={setOpenModalDonate}
+        showModalDonate={openModalDonate}
+      />
     </div>
   );
 };

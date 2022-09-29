@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import img1 from "../assets/img4.png";
+import ModalApprove from "../modals/transaction/ApprovePayment";
+import ModalDonate from "../modals/transaction/ModalPayment";
 
 const ViewFund = () => {
+  const [openModalApprove, setOpenModalApprove] = useState(false);
+  const [openModalDonate, setOpenModalDonate] = useState(false);
+
   return (
     <div>
       <div className="flex pt-[6rem]   px-[200px]">
@@ -44,8 +49,13 @@ const ViewFund = () => {
               ever since the 1500s, when an unknown printer took a galley of
               type and scrambled it to make a type specimen book.{" "}
             </p>
-            <button className="font-bold  py-3 px-6 sm:w-[100%] rounded-lg ">
-              Donate{" "}
+            <button
+              onClick={() => {
+                setOpenModalDonate(true);
+              }}
+              className="font-bold  py-3 px-6 sm:w-[100%] rounded-lg "
+            >
+              Donate
             </button>
           </div>
         </div>
@@ -85,7 +95,14 @@ const ViewFund = () => {
               <p>Total : Rp 45.000</p>
             </div>
             <div className="self-center">
-              <button className="py-1 px-3 rounded-lg">View</button>
+              <button
+                onClick={() => {
+                  setOpenModalApprove(true);
+                }}
+                className="py-1 px-3 rounded-lg"
+              >
+                View
+              </button>
             </div>
           </div>
           <div className="bg-gray-600 py-5 px-5 flex flex-row justify-between">
@@ -113,6 +130,14 @@ const ViewFund = () => {
           <a href="#">Load more</a>
         </h3>
       </div>
+      <ModalApprove
+        setOpenModalApprove={setOpenModalApprove}
+        showModalApprove={openModalApprove}
+      />
+      <ModalDonate
+        setOpenModalDonate={setOpenModalDonate}
+        showModalDonate={openModalDonate}
+      />
     </div>
   );
 };
