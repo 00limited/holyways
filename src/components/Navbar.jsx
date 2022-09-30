@@ -43,10 +43,14 @@ const Navbar = () => {
       <ModalLogin
         setOpenModalLogin={setOpenModalLogin}
         showModalLogin={openModalLogin}
+        setOpenModalRegister={setOpenModalRegister}
+        showModalRegis={openModalRegister}
       />
       <ModalRegister
         setOpenModalRegister={setOpenModalRegister}
         showModalRegis={openModalRegister}
+        setOpenModalLogin={setOpenModalLogin}
+        showModalLogin={openModalLogin}
       />
     </div>
   );

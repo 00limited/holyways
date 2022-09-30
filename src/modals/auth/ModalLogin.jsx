@@ -4,10 +4,14 @@ import { Fragment, useState } from "react";
 import ModalRegister from "./ModalRegister";
 
 function ModalLogin(props) {
-  const [openModalRegister, setOpenModalRegister] = useState(false);
-
   function closeModalL() {
     props.setOpenModalLogin(false);
+  }
+
+  function openModalR(e) {
+    e.preventDefault();
+    props.setOpenModalLogin(false);
+    props.setOpenModalRegister(true);
   }
 
   return (
@@ -73,9 +77,7 @@ function ModalLogin(props) {
                       <p>
                         Don't have an account ? Klik{" "}
                         <span
-                          onClick={() => {
-                            setOpenModalRegister(true);
-                          }}
+                          onClick={openModalR}
                           className="hover:text-blue-500 cursor-pointer"
                         >
                           Here
@@ -88,11 +90,6 @@ function ModalLogin(props) {
             </div>
           </Dialog>
         </Transition>
-
-        <ModalRegister
-          setOpenModalRegister={setOpenModalRegister}
-          showModalRegis={openModalRegister}
-        />
       </div>
     </>
   );
